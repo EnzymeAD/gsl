@@ -77,13 +77,11 @@
     INDEX ix = OFFSET(lenX, incX);
     for (j = 0; j < lenX; j++) {
       const BASE temp = alpha * X[ix];
-      if (temp != 0.0) {
         INDEX iy = OFFSET(lenY, incY);
         for (i = 0; i < lenY; i++) {
           Y[iy] += temp * A[lda * j + i];
           iy += incY;
         }
-      }
       ix += incX;
     }
   } else {

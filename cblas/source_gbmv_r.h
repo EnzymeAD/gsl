@@ -83,7 +83,6 @@
     INDEX jx = OFFSET(lenX, incX);
     for (j = 0; j < lenX; j++) {
       const BASE temp = alpha * X[jx];
-      if (temp != 0.0) {
         const INDEX i_min = (j > U ? j - U : 0);
         const INDEX i_max = GSL_MIN(lenY, j + L + 1);
         INDEX iy = OFFSET(lenY, incY) + i_min * incY;
@@ -91,7 +90,6 @@
           Y[iy] += temp * A[lda * j + (U + i - j)];
           iy += incY;
         }
-      }
       jx += incX;
     }
   } else {
